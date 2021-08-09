@@ -17,7 +17,7 @@ export function Accordion() {
             onClick: () => setExpanded((x) => !x),
           })}
         >
-          <p className="card-header-title">Component</p>
+          <p className="card-header-title">Build an app</p>
           <button className="card-header-icon" aria-label="more options">
             <span className="icon">
               <i
