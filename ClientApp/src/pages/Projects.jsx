@@ -7,7 +7,10 @@ export function Projects() {
   return (
     <>
       <Menu />
-      <Accordion />
+      <fieldset className="projects-accordion">
+        <legend>Joe's Projects</legend>
+        <Accordion />
+      </fieldset>
       <Footer />
     </>
   )
