@@ -10,7 +10,13 @@ export function Projects() {
       <fieldset className="projects-accordion">
         <legend>Joe's Projects</legend>
         <Accordion />
+        <Accordion />
+
+        <span className="new-project-button">
+          <i className="fas fa-plus-circle"></i>
+        </span>
       </fieldset>
+
       <Footer />
     </>
   )

@@ -20,7 +20,9 @@ body {
 .projects-accordion {
   margin: 1rem;
   border: thin solid black;
+  display: grid;
 }
+
 .projects-accordion,
 legend {
   margin-left: 1rem;
@@ -50,5 +52,12 @@ legend {
 
 .is-title {
   margin: auto;
-  justify-content: center;
+  justify-self: normal;
+}
+
+.new-project-button {
+  justify-self: right;
+  border: none;
+  color: cornflowerblue;
+  margin: 1rem;
 }
