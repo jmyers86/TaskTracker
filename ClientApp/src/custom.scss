@@ -13,6 +13,13 @@ body {
   min-height: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
 .navbar {
   background-color: rgb(217, 161, 228);
 }
@@ -20,7 +27,10 @@ body {
 .projects-accordion {
   margin: 1rem;
   border: thin solid black;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .projects-accordion,
@@ -39,6 +49,21 @@ legend {
   text-align: center;
 }
 
+.content-has-text-centered {
+  display: flex;
+  flex-direction: row;
+}
+
+.back-arrow {
+  margin: 0.5rem;
+}
+
+.footer-text {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .navbar-brand {
   display: flex;
   flex-direction: row-reverse;
@@ -47,17 +72,28 @@ legend {
 
 .navbar-burger {
   margin-left: 0;
-  margin-right: auto;
+  margin-right: 0;
 }
 
 .is-title {
-  margin: auto;
-  justify-self: normal;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.new-project-button {
-  justify-self: right;
+.project-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.project-button {
+  display: flex;
+  flex-direction: column;
   border: none;
-  color: cornflowerblue;
+  color: black;
   margin: 1rem;
+}
+
+.plus-icon {
+  color: royalblue;
 }

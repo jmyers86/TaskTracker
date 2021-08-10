@@ -9,12 +9,21 @@ export function Projects() {
       <Menu />
       <fieldset className="projects-accordion">
         <legend>Joe's Projects</legend>
-        <Accordion />
-        <Accordion />
+        <div>
+          <Accordion />
+          <Accordion />
+        </div>
 
-        <span className="new-project-button">
-          <i className="fas fa-plus-circle"></i>
-        </span>
+        <div className="project-actions">
+          <span className="new-project-button has-text-centered project-button">
+            <i className="fas fa-plus-circle fa-3x plus-icon"></i>
+            <span className="caption">New Project</span>
+          </span>
+          <span className="sort-project-button has-text-centered project-button">
+            <i className="fas fa-sort-amount-down fa-2x"></i>
+            <span className="caption">Sort</span>
+          </span>
+        </div>
       </fieldset>
 
       <Footer />
