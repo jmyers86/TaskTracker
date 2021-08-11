@@ -5,8 +5,7 @@ export function Menu() {
     <>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <h1 className="is-title">Welcome, Joe!</h1>
-
+          <h1 className="is-title navbar-item">Welcome, Joe!</h1>
           <button
             className="navbar-burger"
             aria-label="menu"

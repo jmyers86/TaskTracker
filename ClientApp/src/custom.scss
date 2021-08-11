@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3rem;
 }
 
 .navbar {
@@ -38,6 +38,27 @@ legend {
   margin-left: 1rem;
 }
 
+.new-project-form {
+  margin: 1rem;
+  border: thin solid black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.new-project-form,
+legend {
+  margin-left: 1rem;
+}
+
+.form-field {
+  margin: 1rem;
+}
+
+.form-buttons {
+  padding: 1rem;
+}
+
 .footer {
   padding: 0;
   position: fixed;
@@ -49,7 +70,7 @@ legend {
   text-align: center;
 }
 
-.content-has-text-centered {
+.content {
   display: flex;
   flex-direction: row;
 }
@@ -59,23 +80,6 @@ legend {
 }
 
 .footer-text {
-  align-self: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.navbar-brand {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.navbar-burger {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.is-title {
   align-self: center;
   margin-left: auto;
   margin-right: auto;

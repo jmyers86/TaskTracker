@@ -4,9 +4,9 @@ export function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="content-has-text-centered">
+        <div className="content has-text-centered">
           <span className="back-arrow">
-            <i className="fas fa-arrow-alt-circle-left"></i>
+            <i className="fas fa-arrow-alt-circle-left fa-2x"></i>
           </span>
           <p className="footer-text">
             <strong>Bulma</strong> by{' '}

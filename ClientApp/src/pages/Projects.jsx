@@ -16,7 +16,7 @@ export function Projects() {
 
         <div className="project-actions">
           <span className="new-project-button has-text-centered project-button">
-            <i className="fas fa-plus-circle fa-3x plus-icon"></i>
+            <i className="fas fa-plus-circle fa-2x plus-icon"></i>
             <span className="caption">New Project</span>
           </span>
           <span className="sort-project-button has-text-centered project-button">
