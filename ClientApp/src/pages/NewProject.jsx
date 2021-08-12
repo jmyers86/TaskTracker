@@ -10,13 +10,13 @@ export function NewProject() {
         <legend>New Project</legend>
         <div className="form-field">
           <div className="field">
-            <label className="label">Label</label>
+            <label className="label">Name</label>
             <div className="control">
               <input className="input" type="text" placeholder="Project Name" />
             </div>
           </div>
           <div className="field">
-            <label className="label">Message</label>
+            <label className="label">Description</label>
             <div className="control">
               <textarea
                 className="textarea"
@@ -25,21 +25,21 @@ export function NewProject() {
             </div>
           </div>
           <div className="field">
-            <label className="label">Label</label>
+            <label className="label">Estimated Due Date</label>
             <div className="control">
               <input
                 className="input"
-                type="text"
+                type="date"
                 placeholder="Estimated Project Due Date"
               />
             </div>
           </div>
           <div className="field is-grouped is-grouped-centered form-buttons">
             <p className="control">
-              <a className="button is-primary">Submit</a>
+              <a className="button is-primary">Save</a>
             </p>
             <p className="control">
-              <a className="button is-light">Cancel</a>
+              <a className="button is-light">Discard</a>
             </p>
           </div>
         </div>
