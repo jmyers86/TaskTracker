@@ -14,12 +14,12 @@ export function Projects() {
           <Accordion />
         </div>
 
-        <div className="project-actions">
-          <span className="new-project-button has-text-centered project-button">
+        <div className="projects-actions">
+          <span className="new-project-button has-text-centered projects-button">
             <i className="fas fa-plus-circle fa-2x plus-icon"></i>
             <span className="caption">New Project</span>
           </span>
-          <span className="sort-project-button has-text-centered project-button">
+          <span className="sort-project-button has-text-centered projects-button">
             <i className="fas fa-sort-amount-down fa-2x"></i>
             <span className="caption">Sort</span>
           </span>

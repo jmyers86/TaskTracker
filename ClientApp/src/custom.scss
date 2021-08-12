@@ -33,6 +33,21 @@ body {
   flex: 1;
 }
 
+.project-accordion {
+  margin: 1rem;
+  border: thin solid black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-main-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
 .projects-accordion,
 legend {
   margin-left: 1rem;
@@ -70,7 +85,7 @@ legend {
   text-align: center;
 }
 
-.content {
+.footer-content {
   display: flex;
   flex-direction: row;
 }
@@ -85,11 +100,26 @@ legend {
   margin-right: auto;
 }
 
+.projects-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.projects-button {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  color: black;
+  margin: 1rem;
+}
+
 .project-actions {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
+
 .project-button {
   display: flex;
   flex-direction: column;
@@ -124,4 +154,15 @@ legend {
 
 .login-box {
   margin: 2rem 0 0;
+}
+
+.progress {
+  margin: 0;
+}
+
+.progress-bar {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
