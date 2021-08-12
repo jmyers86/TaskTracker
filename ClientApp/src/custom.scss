@@ -101,3 +101,27 @@ legend {
 .plus-icon {
   color: royalblue;
 }
+.login-main {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero {
+  padding: 3rem;
+}
+
+.password-reset {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.login-text {
+  padding: 2rem;
+}
+
+.login-box {
+  margin: 2rem 0 0;
+}
