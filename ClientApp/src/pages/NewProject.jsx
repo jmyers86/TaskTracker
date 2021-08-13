@@ -34,13 +34,10 @@ export function NewProject() {
               />
             </div>
           </div>
-          <div className="field is-grouped is-grouped-centered form-buttons">
-            <p className="control">
-              <a className="button is-primary">Save</a>
-            </p>
-            <p className="control">
-              <a className="button is-light">Discard</a>
-            </p>
+          <div className="field is-grouped is-grouped-centered has-addons form-buttons">
+            <button className="button is-light is-small">Discard</button>
+
+            <button className="button is-primary is-small">Save</button>
           </div>
         </div>
       </fieldset>

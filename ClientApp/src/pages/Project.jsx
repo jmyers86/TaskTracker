@@ -19,11 +19,26 @@ export function Project() {
         <div className="project-main-field">
           <div>
             <Accordion title="Wireframe">
-              <div className="buttons has-addons is-centered">
-                <button className="button is-primary is-light is-small">
-                  In-Progress
-                </button>
-                <button className="button is-primary is-small">Complete</button>
+              <div className="project-detail-field">
+                <p>
+                  Create a wireframe and decide what is MVP worthy and what is "
+                  nice to have".
+                </p>
+                <ul>
+                  <li>Estimated Time: 04:00:00</li>
+                  <li>Start Date: 7/17/2021</li>
+                  <li>Due Date: 7/20/2021</li>
+                  <li>Created On: 7/17/2021</li>
+                </ul>
+
+                <div className="buttons has-addons is-centered">
+                  <button className="button  is-light is-small">
+                    In-Progress
+                  </button>
+                  <button className="button is-primary is-small">
+                    Complete
+                  </button>
+                </div>
               </div>
             </Accordion>
             <Accordion title="ERD">
