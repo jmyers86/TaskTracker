@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useCollapse from 'react-collapsed'
 
-export function Accordion() {
+export function Accordion(props) {
   const [isExpanded, setExpanded] = React.useState(false)
   const { getToggleProps, getCollapseProps } = useCollapse({
     isExpanded,
@@ -17,7 +17,8 @@ export function Accordion() {
             onClick: () => setExpanded((x) => !x),
           })}
         >
-          <p className="card-header-title">Build an app</p>
+          <p className="card-header-title">{props.title}</p>
+
           <button className="card-header-icon" aria-label="more options">
             <span className="icon">
               <i
@@ -30,8 +31,8 @@ export function Accordion() {
         <div {...getCollapseProps()}>
           <div className="card-content">
             <div className="content">
-              <p>Wireframe</p>
-              <p>ERD</p>
+              {props.children}
+
               <br />
 
               <time dateTime="2016-1-1"></time>

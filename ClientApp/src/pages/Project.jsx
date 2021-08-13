@@ -18,8 +18,17 @@ export function Project() {
         </div>
         <div className="project-main-field">
           <div>
-            <Accordion />
-            <Accordion />
+            <Accordion title="Wireframe">
+              <div className="buttons has-addons is-centered">
+                <button className="button is-primary is-light is-small">
+                  In-Progress
+                </button>
+                <button className="button is-primary is-small">Complete</button>
+              </div>
+            </Accordion>
+            <Accordion title="ERD">
+              <p>Hello again!</p>
+            </Accordion>
           </div>
 
           <div className="project-actions">

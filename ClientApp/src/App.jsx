@@ -6,5 +6,5 @@ import { NewProject } from './pages/NewProject'
 import { Login } from './pages/LogIn'
 
 export function App() {
-  return <Projects />
+  return <Project />
 }
