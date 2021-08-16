@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-  background-color: rgb(217, 161, 228);
+  background-color: #00c4a7;
 }
 
 .projects-accordion {
@@ -41,6 +41,14 @@ body {
   flex: 1;
 }
 
+.profile-accordion {
+  margin: 1rem;
+  border: thin solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .project-main-field {
   display: flex;
   flex-direction: column;
@@ -48,7 +56,7 @@ body {
   flex: 1;
 }
 
-.project-detail-field {
+.task-detail-field {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,6 +81,14 @@ legend {
   margin-left: 1rem;
 }
 
+.new-task-form {
+  margin: 1rem;
+  border: thin solid black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .form-field {
   margin: 1rem;
 }
@@ -87,7 +103,7 @@ legend {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(217, 161, 228);
+  background-color: lightgray;
   color: rgb(0, 0, 0);
   text-align: center;
 }
@@ -174,4 +190,17 @@ legend {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.signup-register-button {
+  margin: 1rem 0rem 0rem;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-picture {
+  margin: 1rem;
 }

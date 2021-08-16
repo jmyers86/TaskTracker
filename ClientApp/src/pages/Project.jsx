@@ -6,7 +6,7 @@ import { Accordion } from '../components/Accordion'
 export function Project() {
   return (
     <>
-      <Menu />
+      <Menu message="Joe's Projects" />
 
       <fieldset className="project-accordion">
         <legend>Build an app</legend>
@@ -19,7 +19,7 @@ export function Project() {
         <div className="project-main-field">
           <div>
             <Accordion title="Wireframe">
-              <div className="project-detail-field">
+              <div className="task-detail-field">
                 <p>
                   Create a wireframe and decide what is MVP worthy and what is "
                   nice to have".
@@ -42,7 +42,24 @@ export function Project() {
               </div>
             </Accordion>
             <Accordion title="ERD">
-              <p>Hello again!</p>
+              <div className="task-detail-field">
+                <p>Create an ERD describing the relationship between models.</p>
+                <ul>
+                  <li>Estimated Time: 02:00:00</li>
+                  <li>Start Date: 7/18/2021</li>
+                  <li>Due Date: 7/21/2021</li>
+                  <li>Created On: 7/17/2021</li>
+                </ul>
+
+                <div className="buttons has-addons is-centered">
+                  <button className="button  is-light is-small">
+                    In-Progress
+                  </button>
+                  <button className="button is-primary is-small">
+                    Complete
+                  </button>
+                </div>
+              </div>
             </Accordion>
           </div>
 

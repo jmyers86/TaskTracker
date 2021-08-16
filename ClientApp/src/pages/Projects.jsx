@@ -6,12 +6,26 @@ import { Accordion } from '../components/Accordion'
 export function Projects() {
   return (
     <>
-      <Menu />
+      <Menu message="Joe's Projects" />
       <fieldset className="projects-accordion">
         <legend>Joe's Projects</legend>
         <div>
-          <Accordion />
-          <Accordion />
+          <Accordion title="Build an app">
+            <div className="project-detail-field">
+              <ul className="task-list">
+                <li>Wireframe</li>
+                <li>ERD</li>
+              </ul>
+            </div>
+          </Accordion>
+          <Accordion title="Build another app">
+            <div className="project-detail-field">
+              <ul className="task-list">
+                <li>Wireframe</li>
+                <li>ERD</li>
+              </ul>
+            </div>
+          </Accordion>
         </div>
 
         <div className="projects-actions">

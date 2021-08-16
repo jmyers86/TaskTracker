@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer'
 export function NewProject() {
   return (
     <>
-      <Menu />
+      <Menu message="Please provide Project details" />
       <fieldset className="new-project-form">
         <legend>New Project</legend>
         <div className="form-field">

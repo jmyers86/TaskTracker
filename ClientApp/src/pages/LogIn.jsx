@@ -2,10 +2,10 @@ import React from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 
-export function Login() {
+export function LogIn() {
   return (
     <>
-      <Menu />
+      <Menu message="Welcome, please Log In!" />
       <div className="login-main">
         <section className="hero has-text-centered">
           <div className="hero-body">
