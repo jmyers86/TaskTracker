@@ -27,30 +27,27 @@ export function Menu(props) {
           className={`navbar-menu ${isActive ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
-            <a className="navbar-item">Projects</a>
-
-            <a className="navbar-item">Documentation</a>
-
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">More</a>
-
-              <div className="navbar-dropdown">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Jobs</a>
-                <a className="navbar-item">Contact</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item">Report an issue</a>
-              </div>
+            <figure className="image is-128x128 profile-picture">
+              <img
+                className="is-rounded "
+                src="https://bulma.io/images/placeholders/128x128.png"
+                alt="profile"
+              />
+            </figure>
+            <hr className="navbar-divider" />
+            <div className="navbar-items">
+              <a className="navbar-item is-large">Projects</a>
+              <a className="navbar-item">About</a>
+              <a className="navbar-item">Contact</a>
+              <hr className="navbar-divider" />
+              <a className="navbar-item is-small">Report an issue</a>
             </div>
           </div>
 
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light">Log in</a>
+                <a className="button is-light is-centered">Log Out</a>
               </div>
             </div>
           </div>
