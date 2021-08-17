@@ -6,12 +6,12 @@ import { Accordion } from '../components/Accordion'
 export function Project() {
   return (
     <>
-      <Menu message="Joe's Projects" />
+      <Menu message="Project Details" color="is-info" />
 
       <fieldset className="project-accordion">
         <legend>Build an app</legend>
         <div className="progress-bar">
-          <progress className="progress is-primary" value="15" max="100">
+          <progress className="progress is-info" value="15" max="100">
             15%
           </progress>
           <span className="caption">Current Project Progress: 15%</span>
@@ -35,9 +35,7 @@ export function Project() {
                   <button className="button  is-light is-small">
                     In-Progress
                   </button>
-                  <button className="button is-primary is-small">
-                    Complete
-                  </button>
+                  <button className="button is-info is-small">Complete</button>
                 </div>
               </div>
             </Accordion>
@@ -55,9 +53,7 @@ export function Project() {
                   <button className="button  is-light is-small">
                     In-Progress
                   </button>
-                  <button className="button is-primary is-small">
-                    Complete
-                  </button>
+                  <button className="button is-info is-small">Complete</button>
                 </div>
               </div>
             </Accordion>
@@ -65,8 +61,8 @@ export function Project() {
 
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
-              <i className="fas fa-plus-circle fa-2x plus-icon"></i>
-              <span className="caption">New Project</span>
+              <i className="fas fa-tasks fa-2x new-task-icon is-info"></i>
+              <span className="caption">New Task</span>
             </span>
             <span className="sort-project-button has-text-centered project-button">
               <i className="fas fa-sort-amount-down fa-2x"></i>

@@ -6,7 +6,7 @@ import { Accordion } from '../components/Accordion'
 export function Projects() {
   return (
     <>
-      <Menu message="Joe's Projects" />
+      <Menu message="Joe's Projects" color="is-primary" />
       <fieldset className="projects-accordion">
         <legend>Joe's Projects</legend>
         <div>

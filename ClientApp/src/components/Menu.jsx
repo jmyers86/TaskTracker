@@ -4,11 +4,16 @@ export function Menu(props) {
   const [isActive, setisActive] = useState(false)
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav
+        className={`navbar is-fixed-top ${props.color}`}
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
           <h1 className="is-title navbar-item">{props.message}</h1>
           <button
             onClick={() => {
+              console.log('Click', isActive)
               setisActive(!isActive)
             }}
             className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
@@ -26,8 +31,8 @@ export function Menu(props) {
           id="navbarBasicExample"
           className={`navbar-menu ${isActive ? 'is-active' : ''}`}
         >
-          <div className="navbar-start">
-            <figure className="image is-128x128 profile-picture">
+          <div className="navbar-start ">
+            <figure className="image is-64x64 profile-picture">
               <img
                 className="is-rounded "
                 src="https://bulma.io/images/placeholders/128x128.png"
@@ -47,7 +52,7 @@ export function Menu(props) {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-light is-centered">Log Out</a>
+                <a className="button is-light">Log Out</a>
               </div>
             </div>
           </div>

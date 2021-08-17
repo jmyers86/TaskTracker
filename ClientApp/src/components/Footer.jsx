@@ -9,8 +9,8 @@ export function Footer() {
             <i className="fas fa-arrow-alt-circle-left fa-2x"></i>
           </span>
           <p className="footer-text">
-            <strong>Bulma</strong> by{' '}
-            <a href="https://jgthms.com">Jeremy Thomas</a>.
+            <strong>Task Tracker</strong> by{' '}
+            <a href="https://joeywoey.com">Joe M</a>.
           </p>
         </div>
       </footer>

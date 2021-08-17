@@ -16,18 +16,38 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 3rem;
+  min-height: calc(100vh - 6rem);
 }
 
 .navbar {
   background-color: #00c4a7;
 }
 
-.navbar-items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media screen and (max-width: 1024px) {
+  .navbar-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .navbar-items {
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-items {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-items a {
+    font-weight: bold;
+    color: white;
+  }
 }
 
 .navbar-end {
@@ -51,6 +71,7 @@ body {
   border: thin solid lightgrey;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1;
 }
 
@@ -130,6 +151,11 @@ legend {
   margin: 0.5rem;
 }
 
+@media screen and (min-width: 1024px) {
+  .back-arrow i {
+    opacity: 0%;
+  }
+}
 .footer-text {
   align-self: center;
   margin-left: auto;
@@ -169,6 +195,11 @@ legend {
 .plus-icon {
   color: #00c4a7;
 }
+
+.new-task-icon {
+  color: #3e8ed0;
+}
+
 .login-main {
   margin: 1rem;
   display: flex;
