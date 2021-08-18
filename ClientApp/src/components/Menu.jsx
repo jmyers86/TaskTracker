@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Menu(props) {
   const [isActive, setisActive] = useState(false)
@@ -41,8 +42,12 @@ export function Menu(props) {
             </figure>
             <hr className="navbar-divider" />
             <div className="navbar-items">
-              <a className="navbar-item is-large ">Projects</a>
-              <a className="navbar-item">Profile</a>
+              <a className="navbar-item is-large ">
+                <Link to="/Projects">Projects</Link>
+              </a>
+              <a className="navbar-item">
+                <Link to="/Profile">Profile</Link>
+              </a>
               <a className="navbar-item">About</a>
               <a className="navbar-item is-small">Report an issue</a>
             </div>

@@ -6,7 +6,7 @@ import { Accordion } from '../components/Accordion'
 export function Profile() {
   return (
     <>
-      <Menu message="Joe's Profile" />
+      <Menu message="Joe's Profile" color="is-dark" />
       <div className="profile-page">
         <figure className="image is-128x128 profile-picture">
           <img

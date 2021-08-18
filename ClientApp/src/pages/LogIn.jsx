@@ -1,6 +1,7 @@
 import React from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 export function LogIn() {
   return (
@@ -36,7 +37,11 @@ export function LogIn() {
           <div className="field">
             <p className="control login-buttons has-text-centered">
               <button className="button is-primary is-light">Register</button>
-              <button className="button is-primary">Login</button>
+              {/* <button > */}
+              <Link className="button is-primary" to="/Projects">
+                Login
+              </Link>
+              {/* </button> */}
             </p>
           </div>
           <div>

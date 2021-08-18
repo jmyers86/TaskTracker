@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export function Footer() {
   return (
@@ -6,7 +7,9 @@ export function Footer() {
       <footer className="footer">
         <div className="content has-text-centered footer-content">
           <span className="back-arrow">
-            <i className="fas fa-arrow-alt-circle-left fa-2x"></i>
+            <Link to="..">
+              <i className="fas fa-arrow-alt-circle-left fa-2x"></i>
+            </Link>
           </span>
           <p className="footer-text">
             <strong>Task Tracker</strong> by{' '}

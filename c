@@ -1,0 +1,56 @@
+warning: LF will be replaced by CRLF in ClientApp/src/App.jsx.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in ClientApp/src/index.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in ClientApp/src/pages/LogIn.jsx.
+The file will have its original line endings in your working directory
+[1mdiff --git a/ClientApp/src/App.jsx b/ClientApp/src/App.jsx[m
+[1mindex 4b83a25..db72c62 100644[m
+[1m--- a/ClientApp/src/App.jsx[m
+[1m+++ b/ClientApp/src/App.jsx[m
+[36m@@ -7,7 +7,19 @@[m [mimport { LogIn } from './pages/LogIn'[m
+ import { NewTask } from './pages/NewTask'[m
+ import { SignUp } from './pages/SignUp'[m
+ import { Profile } from './pages/Profile'[m
+[32m+[m[32mimport { Route, Switch } from 'react-router-dom'[m
+ [m
+ export function App() {[m
+[31m-  return <NewTask />[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <main>[m
+[32m+[m[32m      <Switch>[m
+[32m+[m[32m        <Route exact path="/">[m
+[32m+[m[32m          <LogIn />[m
+[32m+[m[32m        </Route>[m
+[32m+[m[32m        <Route exact path="/Projects">[m
+[32m+[m[32m          <Projects />[m
+[32m+[m[32m        </Route>[m
+[32m+[m[32m      </Switch>[m
+[32m+[m[32m    </main>[m
+[32m+[m[32m  )[m
+ }[m
+[1mdiff --git a/ClientApp/src/pages/LogIn.jsx b/ClientApp/src/pages/LogIn.jsx[m
+[1mindex c6d574b..4ae0cd2 100644[m
+[1m--- a/ClientApp/src/pages/LogIn.jsx[m
+[1m+++ b/ClientApp/src/pages/LogIn.jsx[m
+[36m@@ -1,6 +1,7 @@[m
+ import React from 'react'[m
+ import { Menu } from '../components/Menu'[m
+ import { Footer } from '../components/Footer'[m
+[32m+[m[32mimport { Link } from 'react-router-dom'[m
+ [m
+ export function LogIn() {[m
+   return ([m
+[36m@@ -36,7 +37,11 @@[m [mexport function LogIn() {[m
+           <div className="field">[m
+             <p className="control login-buttons has-text-centered">[m
+               <button className="button is-primary is-light">Register</button>[m
+[31m-              <button className="button is-primary">Login</button>[m
+[32m+[m[32m              {/* <button > */}[m
+[32m+[m[32m              <Link className="button is-primary" to="/Projects">[m
+[32m+[m[32m                Login[m
+[32m+[m[32m              </Link>[m
+[32m+[m[32m              {/* </button> */}[m
+             </p>[m
+           </div>[m
+           <div>[m
