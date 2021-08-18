@@ -40,9 +40,6 @@ export function Accordion(props) {
           </div>
           <footer className="card-footer">
             <a href="#" className="card-footer-item">
-              Save
-            </a>
-            <a href="#" className="card-footer-item">
               Edit
             </a>
             <a href="#" className="card-footer-item">

@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer'
 export function NewTask() {
   return (
     <>
-      <Menu message="Please provide Task details" />
+      <Menu message="Please provide Task details" color="is-info" />
       <fieldset className="new-task-form">
         <legend>New Task</legend>
         <div className="form-field">
@@ -57,7 +57,7 @@ export function NewTask() {
           <div className="field is-grouped is-grouped-centered has-addons form-buttons">
             <button className="button is-light is-small">Discard</button>
 
-            <button className="button is-primary is-small">Save</button>
+            <button className="button is-info is-small">Save</button>
           </div>
         </div>
       </fieldset>

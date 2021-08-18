@@ -19,19 +19,11 @@ body {
   min-height: calc(100vh - 6rem);
 }
 
-.navbar {
-  background-color: #00c4a7;
-}
-
 @media screen and (max-width: 1024px) {
   .navbar-items {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .navbar-items {
     font-weight: bold;
   }
 }

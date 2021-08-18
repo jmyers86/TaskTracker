@@ -41,10 +41,9 @@ export function Menu(props) {
             </figure>
             <hr className="navbar-divider" />
             <div className="navbar-items">
-              <a className="navbar-item is-large">Projects</a>
+              <a className="navbar-item is-large ">Projects</a>
+              <a className="navbar-item">Profile</a>
               <a className="navbar-item">About</a>
-              <a className="navbar-item">Contact</a>
-              <hr className="navbar-divider" />
               <a className="navbar-item is-small">Report an issue</a>
             </div>
           </div>

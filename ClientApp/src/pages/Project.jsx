@@ -61,7 +61,7 @@ export function Project() {
 
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
-              <i className="fas fa-tasks fa-2x new-task-icon is-info"></i>
+              <i className="fas fa-tasks fa-2x new-task-icon "></i>
               <span className="caption">New Task</span>
             </span>
             <span className="sort-project-button has-text-centered project-button">
