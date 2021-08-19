@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer'
 export function SignUp() {
   return (
     <>
-      <Menu message="Welcome, please Sign-up!" />
+      <Menu message="Welcome, please Sign-up!" color="is-link" />
       <div className="login-main">
         <form className="box login-box">
           <h1 className="has-text-centered login-text">
@@ -52,15 +52,10 @@ export function SignUp() {
           </div>
           <div className="field">
             <p className="control login-buttons has-text-centered">
-              <button className="button is-primary signup-register-button">
+              <button className="button is-link signup-register-button">
                 Register
               </button>
             </p>
-          </div>
-          <div>
-            <a className="password-reset" href="https://google.com">
-              Forget your password?
-            </a>
           </div>
         </form>
       </div>

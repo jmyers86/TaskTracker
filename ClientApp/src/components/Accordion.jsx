@@ -29,20 +29,12 @@ export function Accordion(props) {
           </button>
         </header>
         <div {...getCollapseProps()}>
-          <div className="card-content">
-            <div className="content">
-              {props.children}
-
-              <br />
-
-              <time dateTime="2016-1-1"></time>
-            </div>
-          </div>
+          {props.children}
           <footer className="card-footer">
-            <a href="#" className="card-footer-item">
+            <a href={props.editTo} className="card-footer-item">
               Edit
             </a>
-            <a href="#" className="card-footer-item">
+            <a href="#" className="card-footer-item" onClick={props.onDelete}>
               Delete
             </a>
           </footer>

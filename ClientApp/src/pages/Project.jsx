@@ -2,6 +2,7 @@ import React from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
+import { Link } from 'react-router-dom'
 
 export function Project() {
   return (
@@ -18,11 +19,15 @@ export function Project() {
         </div>
         <div className="project-main-field">
           <div>
-            <Accordion title="Wireframe">
+            <Accordion
+              title="Wireframe"
+              editTo="/NewTask"
+              onDelete={() => window.alert('deleted!')}
+            >
               <div className="task-detail-field">
                 <p>
-                  Create a wireframe and decide what is MVP worthy and what is "
-                  nice to have".
+                  Create a wireframe and decide what is MVP worthy and what is
+                  "nice to have".
                 </p>
                 <ul>
                   <li>Estimated Time: 04:00:00</li>
@@ -39,7 +44,11 @@ export function Project() {
                 </div>
               </div>
             </Accordion>
-            <Accordion title="ERD">
+            <Accordion
+              title="ERD"
+              editTo="/NewTask"
+              onDelete={() => window.alert('deleted!')}
+            >
               <div className="task-detail-field">
                 <p>Create an ERD describing the relationship between models.</p>
                 <ul>
@@ -61,7 +70,10 @@ export function Project() {
 
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
-              <i className="fas fa-tasks fa-2x new-task-icon "></i>
+              <Link
+                className="fas fa-tasks fa-2x new-task-icon"
+                to="/NewTask"
+              ></Link>
               <span className="caption">New Task</span>
             </span>
             <span className="sort-project-button has-text-centered project-button">

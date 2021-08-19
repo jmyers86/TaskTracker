@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export function LogIn() {
   return (
     <>
-      <Menu message="Welcome, please Log In!" />
+      <Menu message="Welcome, please Log In!" color="is-link" />
       <div className="login-main">
         <section className="hero has-text-centered">
           <div className="hero-body">
@@ -36,9 +36,12 @@ export function LogIn() {
           </div>
           <div className="field">
             <p className="control login-buttons has-text-centered">
-              <button className="button is-primary is-light">Register</button>
+              {/* <button>Register</button> */}
+              <Link className="button is-link is-light" to="/SignUp">
+                Register
+              </Link>
               {/* <button > */}
-              <Link className="button is-primary" to="/Projects">
+              <Link className="button is-link" to="/Projects">
                 Login
               </Link>
               {/* </button> */}
