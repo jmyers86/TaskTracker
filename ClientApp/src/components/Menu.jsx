@@ -48,7 +48,6 @@ export function Menu(props) {
               <a className="navbar-item">
                 <Link to="/Profile">Profile</Link>
               </a>
-              <a className="navbar-item">About</a>
               <a className="navbar-item is-small">Report an issue</a>
             </div>
           </div>
