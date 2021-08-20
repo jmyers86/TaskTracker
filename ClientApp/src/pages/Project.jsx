@@ -22,6 +22,7 @@ export function Project() {
             <Accordion
               title="Wireframe"
               editTo="/NewTask"
+              dueDate="7/20/2021"
               onDelete={() => window.alert('deleted!')}
             >
               <div className="task-detail-field">
@@ -32,7 +33,7 @@ export function Project() {
                 <ul>
                   <li>Estimated Time: 04:00:00</li>
                   <li>Start Date: 7/17/2021</li>
-                  <li>Due Date: 7/20/2021</li>
+
                   <li>Created On: 7/17/2021</li>
                 </ul>
 
@@ -47,6 +48,7 @@ export function Project() {
             <Accordion
               title="ERD"
               editTo="/NewTask"
+              dueDate="7/21/2021"
               onDelete={() => window.alert('deleted!')}
             >
               <div className="task-detail-field">
@@ -54,7 +56,6 @@ export function Project() {
                 <ul>
                   <li>Estimated Time: 02:00:00</li>
                   <li>Start Date: 7/18/2021</li>
-                  <li>Due Date: 7/21/2021</li>
                   <li>Created On: 7/17/2021</li>
                 </ul>
 

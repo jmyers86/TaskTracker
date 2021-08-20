@@ -17,7 +17,9 @@ export function Accordion(props) {
             onClick: () => setExpanded((x) => !x),
           })}
         >
-          <p className="card-header-title">{props.title}</p>
+          <p className="card-header-title">
+            {props.title}&nbsp;({props.dueDate})
+          </p>
 
           <button className="card-header-icon" aria-label="more options">
             <span className="icon">
