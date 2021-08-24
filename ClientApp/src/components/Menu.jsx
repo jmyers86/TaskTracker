@@ -42,12 +42,14 @@ export function Menu(props) {
             </figure>
             <hr className="navbar-divider" />
             <div className="navbar-items">
-              <a className="navbar-item is-large ">
-                <Link to="/Projects">Projects</Link>
-              </a>
-              <a className="navbar-item">
-                <Link to="/Profile">Profile</Link>
-              </a>
+              <Link className="navbar-item is-large" to="/Projects">
+                Projects
+              </Link>
+
+              <Link className="navbar-item" to="/Profile">
+                Profile
+              </Link>
+
               <a className="navbar-item is-small">Report an issue</a>
             </div>
           </div>

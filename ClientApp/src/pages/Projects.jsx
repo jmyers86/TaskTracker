@@ -26,6 +26,7 @@ export function Projects() {
         <legend>Joe's Projects</legend>
         {projects.map((project) => (
           <Accordion
+            key={project.id}
             title={project.name}
             dueDate={project.dueDate}
             editTo="/Project"
