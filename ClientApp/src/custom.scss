@@ -54,7 +54,6 @@ body {
   border: thin solid lightgrey;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
 }
 
@@ -159,6 +158,7 @@ legend {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .projects-button {

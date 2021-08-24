@@ -20,6 +20,7 @@ export function Project() {
         <div className="project-main-field">
           <div>
             <Accordion
+              className="project-accordion-projects"
               title="Wireframe"
               editTo="/NewTask"
               dueDate="7/20/2021"
