@@ -28,7 +28,7 @@ export function Projects() {
           <Accordion
             key={project.id}
             title={project.name}
-            dueDate={project.dueDate}
+            dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
             editTo="/Project"
             onDelete={() => window.alert('deleted!')}
           >
