@@ -29,7 +29,7 @@ export function Projects() {
             key={project.id}
             title={project.name}
             dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
-            editTo="/Project"
+            editTo="/projects/:id"
             onDelete={() => window.alert('deleted!')}
           >
             <div className="project-detail-field card-content">

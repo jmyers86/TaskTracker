@@ -1,10 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export function Project() {
+  const params = useParams()
+  const id = params.id
+
+  const [project, setProject] = useState({
+    name: '',
+    description: '',
+    dueDate: new Date().toISOString().split('T')[0],
+    completed: false,
+  })
+
+  const [task, setTask] = useState({
+    name: '',
+    description: '',
+    estimatedTime: '00:00:00',
+    startDate: new Date().toISOString().split('T')[0],
+    dueDate: new Date().toISOString().split('T')[0],
+    createdOn: new Date().toISOString().split('T')[0],
+    completed: false,
+  })
+
+  useEffect(() => {
+    async function fetchProject() {
+      const response = await fetch(`/api/Projects/${id}`)
+      if (response.ok) {
+        const apiData = await response.json()
+        setTask(apiData)
+      }
+    }
+    fetchProject()
+  }, [id])
+
   return (
     <>
       <Menu message="Project Details" color="is-info" />

@@ -18,7 +18,7 @@ export function App() {
       <Route exact path="/Projects">
         <Projects />
       </Route>
-      <Route exact path="/Project">
+      <Route exact path="/Projects/:id">
         <Project />
       </Route>
       <Route exact path="/new">
