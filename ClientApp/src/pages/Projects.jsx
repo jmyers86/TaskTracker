@@ -48,7 +48,7 @@ export function Projects() {
           <span className="new-project-button has-text-centered projects-button">
             <Link
               className="fas fa-plus-circle fa-2x plus-icon"
-              to="/NewProject"
+              to="/new"
             ></Link>
             <span className="caption">New Project</span>
           </span>

@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
+import { useHistory } from 'react-router-dom'
 
 export function NewProject() {
   const [newProject, setNewProject] = useState({
     name: '',
     description: '',
-    dueDate: undefined,
+    dueDate: new Date().toISOString().split('T')[0],
     completed: false,
   })
+
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const history = useHistory()
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -24,11 +29,34 @@ export function NewProject() {
 
     setNewProject(updatedProject)
   }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch('/api/Projects', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newProject),
+    })
+
+    const json = await response.json()
+
+    if (response.status === 400) {
+      setErrorMessage(Object.values(json.errors).join(' '))
+    } else {
+      history.push('/Projects')
+    }
+  }
   return (
     <>
       <Menu message="Please provide Project details" color="is-primary" />
       <fieldset className="new-project-form">
         <legend>New Project</legend>
+        {errorMessage && (
+          <article className="message is-warning">
+            <div className="message-body">{errorMessage}</div>
+          </article>
+        )}
         <div className="form-field">
           <div className="field">
             <label className="label">Name</label>
@@ -71,7 +99,12 @@ export function NewProject() {
           <div className="field is-grouped is-grouped-centered has-addons form-buttons">
             <button className="button is-light is-small">Discard</button>
 
-            <button className="button is-primary is-small">Save</button>
+            <button
+              className="button is-primary is-small"
+              onClick={handleFormSubmit}
+            >
+              Save
+            </button>
           </div>
         </div>
       </fieldset>

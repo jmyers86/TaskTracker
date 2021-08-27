@@ -21,7 +21,7 @@ export function App() {
       <Route exact path="/Project">
         <Project />
       </Route>
-      <Route exact path="/NewProject">
+      <Route exact path="/new">
         <NewProject />
       </Route>
       <Route exact path="/NewTask">
