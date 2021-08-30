@@ -10,7 +10,7 @@ namespace TaskTracker.Models
         public DateTime EstimatedTime { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; private set; } = DateTime.Now;
         public bool Completed { get; set; }
 
         public int ProjectId { get; set; }

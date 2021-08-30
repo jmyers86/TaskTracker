@@ -35,7 +35,12 @@ namespace TaskTracker.Controllers
         {
             // Uses the database context in `_context` to request all of the Projects, sort
             // them by row id and return them as a JSON array.
-            return await _context.Projects.OrderBy(row => row.Id).ToListAsync();
+            // return await _context.Projects.OrderBy(row => row.Id).ToListAsync();
+
+
+            return await _context.Projects.OrderBy(project => project.Id).Include(project => project.Tasks).ToListAsync();
+
+
         }
 
         // GET: api/Projects/5
@@ -48,7 +53,7 @@ namespace TaskTracker.Controllers
         public async Task<ActionResult<Project>> GetProject(int id)
         {
             // Find the project in the database using `FindAsync` to look it up by id
-            var project = await _context.Projects.FindAsync(id);
+            var project = await _context.Projects.Include(project => project.Tasks).Where(project => project.Id == id).FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (project == null)

@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 
 export function Project() {
   const params = useParams()
+  // @ts-ignore
   const id = params.id
 
   const [project, setProject] = useState({
@@ -13,16 +14,7 @@ export function Project() {
     description: '',
     dueDate: new Date().toISOString().split('T')[0],
     completed: false,
-  })
-
-  const [task, setTask] = useState({
-    name: '',
-    description: '',
-    estimatedTime: '00:00:00',
-    startDate: new Date().toISOString().split('T')[0],
-    dueDate: new Date().toISOString().split('T')[0],
-    createdOn: new Date().toISOString().split('T')[0],
-    completed: false,
+    tasks: [],
   })
 
   useEffect(() => {
@@ -30,7 +22,22 @@ export function Project() {
       const response = await fetch(`/api/Projects/${id}`)
       if (response.ok) {
         const apiData = await response.json()
-        setTask(apiData)
+
+        // {
+        //   "id": 1,
+        //   "name": 'Foo',
+        //   ...,
+        //   "tasks": [
+        //     {
+        //       id: 1,
+        //       ProjectId: 1,
+        //       name: "Do a thing",
+        //       estimatedTime: "00:10:00",
+        //     }
+        //   ]
+        // }
+
+        setProject(apiData)
       }
     }
     fetchProject()
