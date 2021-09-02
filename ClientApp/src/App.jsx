@@ -15,10 +15,10 @@ export function App() {
       <Route exact path="/">
         <LogIn />
       </Route>
-      <Route exact path="/Projects">
+      <Route exact path="/projects">
         <Projects />
       </Route>
-      <Route exact path="/Projects/:id">
+      <Route exact path="/projects/:id">
         <Project />
       </Route>
       <Route exact path="/new">

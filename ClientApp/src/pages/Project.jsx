@@ -56,58 +56,65 @@ export function Project() {
           <span className="caption">Current Project Progress: 15%</span>
         </div>
         <div className="project-main-field">
-          <div>
-            <Accordion
-              className="project-accordion-projects"
-              title="Wireframe"
-              editTo="/NewTask"
-              dueDate="7/20/2021"
-              onDelete={() => window.alert('deleted!')}
-            >
-              <div className="task-detail-field">
-                <p>
-                  Create a wireframe and decide what is MVP worthy and what is
-                  "nice to have".
-                </p>
-                <ul>
-                  <li>Estimated Time: 04:00:00</li>
-                  <li>Start Date: 7/17/2021</li>
+          {project.tasks.map((project) => (
+            <div>
+              <Accordion
+                className="project-accordion-projects"
+                title="Wireframe"
+                editTo="/NewTask"
+                dueDate="7/20/2021"
+                onDelete={() => window.alert('deleted!')}
+              >
+                <div className="task-detail-field">
+                  <p>
+                    Create a wireframe and decide what is MVP worthy and what is
+                    "nice to have".
+                  </p>
+                  <ul>
+                    <li>Estimated Time: 04:00:00</li>
+                    <li>Start Date: 7/17/2021</li>
 
-                  <li>Created On: 7/17/2021</li>
-                </ul>
+                    <li>Created On: 7/17/2021</li>
+                  </ul>
 
-                <div className="buttons has-addons is-centered">
-                  <button className="button  is-light is-small">
-                    In-Progress
-                  </button>
-                  <button className="button is-info is-small">Complete</button>
+                  <div className="buttons has-addons is-centered">
+                    <button className="button  is-light is-small">
+                      In-Progress
+                    </button>
+                    <button className="button is-info is-small">
+                      Complete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </Accordion>
-            <Accordion
-              title="ERD"
-              editTo="/NewTask"
-              dueDate="7/21/2021"
-              onDelete={() => window.alert('deleted!')}
-            >
-              <div className="task-detail-field">
-                <p>Create an ERD describing the relationship between models.</p>
-                <ul>
-                  <li>Estimated Time: 02:00:00</li>
-                  <li>Start Date: 7/18/2021</li>
-                  <li>Created On: 7/17/2021</li>
-                </ul>
+              </Accordion>
+              <Accordion
+                title="ERD"
+                editTo="/NewTask"
+                dueDate="7/21/2021"
+                onDelete={() => window.alert('deleted!')}
+              >
+                <div className="task-detail-field">
+                  <p>
+                    Create an ERD describing the relationship between models.
+                  </p>
+                  <ul>
+                    <li>Estimated Time: 02:00:00</li>
+                    <li>Start Date: 7/18/2021</li>
+                    <li>Created On: 7/17/2021</li>
+                  </ul>
 
-                <div className="buttons has-addons is-centered">
-                  <button className="button  is-light is-small">
-                    In-Progress
-                  </button>
-                  <button className="button is-info is-small">Complete</button>
+                  <div className="buttons has-addons is-centered">
+                    <button className="button  is-light is-small">
+                      In-Progress
+                    </button>
+                    <button className="button is-info is-small">
+                      Complete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </Accordion>
-          </div>
-
+              </Accordion>
+            </div>
+          ))}
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
               <Link
