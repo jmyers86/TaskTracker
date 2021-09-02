@@ -56,23 +56,42 @@ export function Project() {
           <span className="caption">Current Project Progress: 15%</span>
         </div>
         <div className="project-main-field">
-          {project.tasks.map((task) => (
-            <div>
+          <div>
+            {project.tasks.map((task) => (
               <Accordion
                 className="project-accordion-projects"
                 key={task.id}
                 title={task.name}
                 editTo="/NewTask"
-                dueDate={task.dueDate}
+                dueDate={
+                  new Date(`${task.dueDate}`).toISOString().split('T')[0]
+                }
                 onDelete={() => window.alert('deleted!')}
               >
                 <div className="task-detail-field">
                   <p>{task.description}</p>
                   <ul>
-                    <li>{task.estimatedTime}</li>
-                    <li>{task.startDate}</li>
-
-                    <li>{task.createdOn}</li>
+                    <li>Estimated Time: {task.estimatedTime}</li>
+                    <li>
+                      Start Date:{'  '}
+                      {
+                        new Date(`${task.startDate}`)
+                          .toISOString()
+                          .split('T')[0]
+                      }
+                    </li>
+                    <li>
+                      Due Date:{'  '}
+                      {new Date(`${task.dueDate}`).toISOString().split('T')[0]}
+                    </li>
+                    <li>
+                      Created On:{'  '}
+                      {
+                        new Date(`${task.createdOn}`)
+                          .toISOString()
+                          .split('T')[0]
+                      }
+                    </li>
                   </ul>
 
                   <div className="buttons has-addons is-centered">
@@ -85,8 +104,9 @@ export function Project() {
                   </div>
                 </div>
               </Accordion>
-            </div>
-          ))}
+            ))}
+          </div>
+
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
               <Link
