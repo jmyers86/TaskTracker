@@ -36,7 +36,7 @@ export function Project() {
         //     }
         //   ]
         // }
-
+        console.log(apiData)
         setProject(apiData)
       }
     }

@@ -5,7 +5,15 @@ import { Accordion } from '../components/Accordion'
 import { Link } from 'react-router-dom'
 
 export function Projects() {
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([
+    {
+      name: '',
+      description: '',
+      dueDate: new Date().toISOString().split('T')[0],
+      completed: false,
+      tasks: [],
+    },
+  ])
 
   useEffect(() => {
     async function loadProjects() {
@@ -29,15 +37,16 @@ export function Projects() {
             key={project.id}
             title={project.name}
             dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
-            editTo="/projects/:id"
+            editTo={`/projects/${project.id}`}
             onDelete={() => window.alert('deleted!')}
           >
             <div className="project-detail-field card-content">
               <div className="content">
                 <p className="is-strong">{project.description}</p>
                 <ul className="task-list">
-                  <li>Wireframe</li>
-                  <li>ERD</li>
+                  {project.tasks.map((task) => (
+                    <li>{task.name}</li>
+                  ))}
                 </ul>
               </div>
             </div>
