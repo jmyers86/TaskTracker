@@ -56,51 +56,23 @@ export function Project() {
           <span className="caption">Current Project Progress: 15%</span>
         </div>
         <div className="project-main-field">
-          {project.tasks.map((project) => (
+          {project.tasks.map((task) => (
             <div>
               <Accordion
                 className="project-accordion-projects"
-                title="Wireframe"
+                key={task.id}
+                title={task.name}
                 editTo="/NewTask"
-                dueDate="7/20/2021"
+                dueDate={task.dueDate}
                 onDelete={() => window.alert('deleted!')}
               >
                 <div className="task-detail-field">
-                  <p>
-                    Create a wireframe and decide what is MVP worthy and what is
-                    "nice to have".
-                  </p>
+                  <p>{task.description}</p>
                   <ul>
-                    <li>Estimated Time: 04:00:00</li>
-                    <li>Start Date: 7/17/2021</li>
+                    <li>{task.estimatedTime}</li>
+                    <li>{task.startDate}</li>
 
-                    <li>Created On: 7/17/2021</li>
-                  </ul>
-
-                  <div className="buttons has-addons is-centered">
-                    <button className="button  is-light is-small">
-                      In-Progress
-                    </button>
-                    <button className="button is-info is-small">
-                      Complete
-                    </button>
-                  </div>
-                </div>
-              </Accordion>
-              <Accordion
-                title="ERD"
-                editTo="/NewTask"
-                dueDate="7/21/2021"
-                onDelete={() => window.alert('deleted!')}
-              >
-                <div className="task-detail-field">
-                  <p>
-                    Create an ERD describing the relationship between models.
-                  </p>
-                  <ul>
-                    <li>Estimated Time: 02:00:00</li>
-                    <li>Start Date: 7/18/2021</li>
-                    <li>Created On: 7/17/2021</li>
+                    <li>{task.createdOn}</li>
                   </ul>
 
                   <div className="buttons has-addons is-centered">
