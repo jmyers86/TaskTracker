@@ -24,7 +24,7 @@ export function App() {
       <Route exact path="/new">
         <NewProject />
       </Route>
-      <Route exact path="/NewTask">
+      <Route exact path="/projects/:id/newTask">
         <NewTask />
       </Route>
       <Route exact path="/SignUp">

@@ -44,7 +44,7 @@ export function NewProject() {
     if (response.status === 400) {
       setErrorMessage(Object.values(json.errors).join(' '))
     } else {
-      history.push('/Projects')
+      history.push('/projects')
     }
   }
   return (

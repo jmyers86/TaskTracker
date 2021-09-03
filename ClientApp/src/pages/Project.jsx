@@ -48,7 +48,7 @@ export function Project() {
       <Menu message="Project Details" color="is-info" />
 
       <fieldset className="project-accordion">
-        <legend>Build an app</legend>
+        <legend>{project.name}</legend>
         <div className="progress-bar">
           <progress className="progress is-info" value="15" max="100">
             15%
@@ -62,7 +62,7 @@ export function Project() {
                 className="project-accordion-projects"
                 key={task.id}
                 title={task.name}
-                editTo="/NewTask"
+                editTo={`projects/${id}/newTask`}
                 dueDate={
                   new Date(`${task.dueDate}`).toISOString().split('T')[0]
                 }
@@ -111,7 +111,7 @@ export function Project() {
             <span className="new-project-button has-text-centered project-button">
               <Link
                 className="fas fa-tasks fa-2x new-task-icon"
-                to="/NewTask"
+                to={`/projects/${id}/newTask`}
               ></Link>
               <span className="caption">New Task</span>
             </span>
