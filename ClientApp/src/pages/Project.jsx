@@ -23,19 +23,6 @@ export function Project() {
       if (response.ok) {
         const apiData = await response.json()
 
-        // {
-        //   "id": 1,
-        //   "name": 'Foo',
-        //   ...,
-        //   "tasks": [
-        //     {
-        //       id: 1,
-        //       ProjectId: 1,
-        //       name: "Do a thing",
-        //       estimatedTime: "00:10:00",
-        //     }
-        //   ]
-        // }
         console.log(apiData)
         setProject(apiData)
       }

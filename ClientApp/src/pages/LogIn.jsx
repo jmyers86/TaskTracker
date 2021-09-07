@@ -37,11 +37,11 @@ export function LogIn() {
           <div className="field">
             <p className="control login-buttons has-text-centered">
               {/* <button>Register</button> */}
-              <Link className="button is-link is-light" to="/SignUp">
+              <Link className="button is-link is-light" to="/signUp">
                 Register
               </Link>
               {/* <button > */}
-              <Link className="button is-link" to="/Projects">
+              <Link className="button is-link" to="/projects">
                 Login
               </Link>
               {/* </button> */}

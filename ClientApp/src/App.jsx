@@ -27,10 +27,10 @@ export function App() {
       <Route exact path="/projects/:id/newTask">
         <NewTask />
       </Route>
-      <Route exact path="/SignUp">
+      <Route exact path="/signUp">
         <SignUp />
       </Route>
-      <Route exact path="/Profile">
+      <Route exact path="/profile">
         <Profile />
       </Route>
     </Switch>

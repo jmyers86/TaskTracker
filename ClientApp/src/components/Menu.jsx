@@ -42,11 +42,11 @@ export function Menu(props) {
             </figure>
             <hr className="navbar-divider" />
             <div className="navbar-items">
-              <Link className="navbar-item is-large" to="/Projects">
+              <Link className="navbar-item is-large" to="/projects">
                 Projects
               </Link>
 
-              <Link className="navbar-item" to="/Profile">
+              <Link className="navbar-item" to="/profile">
                 Profile
               </Link>
 
