@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Link } from 'react-router-dom'
@@ -53,10 +53,11 @@ export function LogIn() {
             <p className="control has-icons-left has-icons-right">
               <input
                 className="input"
+                name="email"
                 type="email"
                 placeholder="Email"
                 value={user.email}
-                // onChange={handleStringFieldChange}
+                onChange={handleStringFieldChange}
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope"></i>
@@ -71,6 +72,7 @@ export function LogIn() {
               <input
                 className="input"
                 type="password"
+                name="password"
                 placeholder="Password"
                 value={user.password}
                 onChange={handleStringFieldChange}

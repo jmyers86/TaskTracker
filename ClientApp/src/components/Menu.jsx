@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getUser, isLoggedIn, logout } from '../auth'
+import { isLoggedIn, logout } from '../auth'
 
 export function Menu(props) {
   const [isActive, setisActive] = useState(false)
@@ -10,6 +10,7 @@ export function Menu(props) {
 
     window.location.assign('/')
   }
+
   return (
     <>
       <nav
@@ -57,7 +58,7 @@ export function Menu(props) {
                 Profile
               </Link>
 
-              <a className="navbar-item is-small">Report an issue</a>
+              <span className="navbar-item is-small">Report an issue</span>
             </div>
           </div>
 

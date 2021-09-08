@@ -26,7 +26,7 @@ export function Projects() {
     <>
       <Menu message="Joe's Projects" color="is-primary" />
       <fieldset className="projects-accordion">
-        <legend>joe's Projects</legend>
+        <legend>Joe's Projects</legend>
         {projects.map((project) => (
           <Accordion
             key={project.id}
