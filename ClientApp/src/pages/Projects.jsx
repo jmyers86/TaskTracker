@@ -3,6 +3,7 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link } from 'react-router-dom'
+import { getUser } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
@@ -19,11 +20,13 @@ export function Projects() {
     }
     loadProjects()
   }, [])
+
+  const user = getUser()
   return (
     <>
       <Menu message="Joe's Projects" color="is-primary" />
       <fieldset className="projects-accordion">
-        <legend>Joe's Projects</legend>
+        <legend>joe's Projects</legend>
         {projects.map((project) => (
           <Accordion
             key={project.id}

@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getUser, isLoggedIn, logout } from '../auth'
 
 export function Menu(props) {
   const [isActive, setisActive] = useState(false)
+
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
   return (
     <>
       <nav
@@ -57,7 +64,11 @@ export function Menu(props) {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-light">Log Out</a>
+                {isLoggedIn() ? (
+                  <span className="button is-light" onClick={handleLogout}>
+                    Log Out
+                  </span>
+                ) : null}
               </div>
             </div>
           </div>

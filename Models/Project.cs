@@ -14,5 +14,6 @@ namespace TaskTracker.Models
         public DateTime DueDate { get; set; }
         public bool Completed { get; set; }
         public List<Task> Tasks { get; set; }
+        public int UserId { get; set; }
     }
 }
