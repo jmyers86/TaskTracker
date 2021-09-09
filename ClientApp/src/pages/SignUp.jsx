@@ -4,14 +4,15 @@ import { Footer } from '../components/Footer'
 import { useHistory } from 'react-router'
 
 export function SignUp() {
-  const [errorMessage, setErrorMessage] = useState('')
+  const history = useHistory()
+
+  const [errorMessage, setErrorMessage] = useState([])
+
   const [newUser, setNewUser] = useState({
     name: '',
     email: '',
     password: '',
   })
-
-  const history = useHistory()
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -29,10 +30,12 @@ export function SignUp() {
       body: JSON.stringify(newUser),
     })
 
-    const json = await response.json()
+    const apiResponse = await response.json()
 
-    if (response.status === 400) {
-      setErrorMessage(Object.values(json.errors).join(' '))
+    console.log(apiResponse)
+
+    if (apiResponse.status === 400) {
+      setErrorMessage(Object.values(apiResponse.errors))
     } else {
       history.push('/')
     }
@@ -42,23 +45,30 @@ export function SignUp() {
     <>
       <Menu message="Welcome, please Sign-up!" color="is-link" />
       <div className="login-main">
-        {errorMessage && (
-          <article className="message is-warning">
-            <div className="message-body">{errorMessage}</div>
-          </article>
-        )}
-        <form className="box login-box">
+        <form className="box login-box" onSubmit={handleFormSubmit}>
+          {errorMessage.length > 0 && (
+            <article className="message is-warning">
+              <div className="message-body content">
+                <ul>
+                  {errorMessage.map((msg) => (
+                    <li>{msg}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          )}
           <h1 className="has-text-centered login-text">
             Please provide your details:
           </h1>
+
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
               <input
                 className="input"
                 type="text"
-                placeholder="Name"
                 name="name"
+                placeholder="Name"
                 value={newUser.name}
                 onChange={handleStringFieldChange}
               />
@@ -71,6 +81,7 @@ export function SignUp() {
               <input
                 className="input"
                 type="email"
+                name="email"
                 placeholder="Email"
                 value={newUser.email}
                 onChange={handleStringFieldChange}
@@ -90,6 +101,7 @@ export function SignUp() {
               <input
                 className="input"
                 type="password"
+                name="password"
                 placeholder="Password"
                 value={newUser.password}
                 onChange={handleStringFieldChange}
@@ -113,7 +125,7 @@ export function SignUp() {
             <p className="control login-buttons has-text-centered">
               <button
                 className="button is-link signup-register-button"
-                onSubmit={handleFormSubmit}
+                type="submit"
               >
                 Register
               </button>

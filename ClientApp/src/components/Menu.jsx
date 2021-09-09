@@ -22,7 +22,6 @@ export function Menu(props) {
           <h1 className="is-title navbar-item">{props.message}</h1>
           <button
             onClick={() => {
-              console.log('Click', isActive)
               setisActive(!isActive)
             }}
             className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}

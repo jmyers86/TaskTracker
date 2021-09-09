@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Link } from 'react-router-dom'
@@ -48,7 +48,7 @@ export function LogIn() {
           </div>
         </section>
         <h1 className="has-text-centered login-text">Please Log In!</h1>
-        <form className="box login-box">
+        <form className="box login-box" onSubmit={handleFormSubmit}>
           <div className="field">
             <p className="control has-icons-left has-icons-right">
               <input
@@ -88,14 +88,9 @@ export function LogIn() {
                 Register
               </Link>
 
-              <Link
-                className="button is-link"
-                to="/projects"
-                onSubmit={handleFormSubmit}
-              >
+              <button className="button is-link" type="submit">
                 Login
-              </Link>
-              {/* </button> */}
+              </button>
             </p>
           </div>
           <div>

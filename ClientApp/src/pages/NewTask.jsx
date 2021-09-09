@@ -58,92 +58,91 @@ export function NewTask() {
   return (
     <>
       <Menu message="Please provide Task details" color="is-info" />
-      <fieldset className="new-task-form">
-        <legend>New Task</legend>
-        {errorMessage && (
-          <article className="message is-warning">
-            <div className="message-body">{errorMessage}</div>
-          </article>
-        )}
-        <div className="form-field">
-          <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Task Name"
-                name="name"
-                value={newTask.name}
-                onChange={handleStringFieldChange}
-              />
+      <form onSubmit={handleFormSubmit}>
+        <fieldset className="new-task-form">
+          <legend>New Task</legend>
+          {errorMessage && (
+            <article className="message is-warning">
+              <div className="message-body">{errorMessage}</div>
+            </article>
+          )}
+          <div className="form-field">
+            <div className="field">
+              <label className="label">Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Task Name"
+                  name="name"
+                  value={newTask.name}
+                  onChange={handleStringFieldChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Description</label>
-            <div className="control">
-              <textarea
-                className="textarea"
-                placeholder="Task Description"
-                name="description"
-                value={newTask.description}
-                onChange={handleStringFieldChange}
-              ></textarea>
+            <div className="field">
+              <label className="label">Description</label>
+              <div className="control">
+                <textarea
+                  className="textarea"
+                  placeholder="Task Description"
+                  name="description"
+                  value={newTask.description}
+                  onChange={handleStringFieldChange}
+                ></textarea>
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Estimated Time</label>
-            <div className="control">
-              <input
-                className="input"
-                type="number"
-                step=".5"
-                min=".5"
-                placeholder="Estimated Time (in hours)"
-                name="estimatedTime"
-                value={newTask.estimatedTime}
-                onChange={handleStringFieldChange}
-              />
+            <div className="field">
+              <label className="label">Estimated Time</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  step=".5"
+                  min=".5"
+                  placeholder="Estimated Time (in hours)"
+                  name="estimatedTime"
+                  value={newTask.estimatedTime}
+                  onChange={handleStringFieldChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Start Date</label>
-            <div className="control">
-              <input
-                className="input"
-                type="date"
-                placeholder="Task Start Date"
-                name="startDate"
-                value={newTask.startDate}
-                onChange={handleDateFieldChange}
-              />
+            <div className="field">
+              <label className="label">Start Date</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="date"
+                  placeholder="Task Start Date"
+                  name="startDate"
+                  value={newTask.startDate}
+                  onChange={handleDateFieldChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Due Date</label>
-            <div className="control">
-              <input
-                className="input"
-                type="date"
-                placeholder="Task Due Date"
-                name="dueDate"
-                value={newTask.dueDate}
-                onChange={handleDateFieldChange}
-              />
+            <div className="field">
+              <label className="label">Due Date</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="date"
+                  placeholder="Task Due Date"
+                  name="dueDate"
+                  value={newTask.dueDate}
+                  onChange={handleDateFieldChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field is-grouped is-grouped-centered has-addons form-buttons">
-            <button className="button is-light is-small">Discard</button>
+            <div className="field is-grouped is-grouped-centered has-addons form-buttons">
+              <button className="button is-light is-small">Discard</button>
 
-            <button
-              className="button is-info is-small"
-              onClick={handleFormSubmit}
-            >
-              Save
-            </button>
+              <button className="button is-info is-small" type="submit">
+                Save
+              </button>
+            </div>
           </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </form>
 
       <Footer />
     </>
