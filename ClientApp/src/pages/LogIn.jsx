@@ -30,7 +30,7 @@ export function LogIn() {
       setErrorMessage(Object.values(apiResponse.errors).join(' '))
     } else {
       recordAuthentication(apiResponse)
-      window.location.assign('/')
+      window.location.assign('/projects')
     }
   }
   return (

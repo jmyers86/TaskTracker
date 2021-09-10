@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -127,8 +130,10 @@ namespace TaskTracker.Controllers
         // new values for the record.
         //
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Project>> PostProject(Project project)
         {
+            project.UserId = GetCurrentUserId();
             // Indicate to the database context we want to add this new record
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();
@@ -169,6 +174,11 @@ namespace TaskTracker.Controllers
         private bool ProjectExists(int id)
         {
             return _context.Projects.Any(project => project.Id == id);
+        }
+
+        private int GetCurrentUserId()
+        {
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }

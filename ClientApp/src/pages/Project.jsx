@@ -3,6 +3,7 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link, useParams } from 'react-router-dom'
+import { isLoggedIn } from '../auth'
 
 export function Project() {
   const params = useParams()
@@ -96,10 +97,12 @@ export function Project() {
 
           <div className="project-actions">
             <span className="new-project-button has-text-centered project-button">
-              <Link
-                className="fas fa-tasks fa-2x new-task-icon"
-                to={`/projects/${id}/newTask`}
-              ></Link>
+              {isLoggedIn() ? (
+                <Link
+                  className="fas fa-tasks fa-2x new-task-icon"
+                  to={`/projects/${id}/newTask`}
+                ></Link>
+              ) : null}
               <span className="caption">New Task</span>
             </span>
             <span className="sort-project-button has-text-centered project-button">

@@ -3,7 +3,7 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link } from 'react-router-dom'
-import { getUser } from '../auth'
+import { getUser, isLoggedIn } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
@@ -24,9 +24,9 @@ export function Projects() {
   const user = getUser()
   return (
     <>
-      <Menu message="Joe's Projects" color="is-primary" />
+      <Menu message={`${user.name}'s Projects`} color="is-primary" />
       <fieldset className="projects-accordion">
-        <legend>Joe's Projects</legend>
+        <legend>{user.name}'s Projects</legend>
         {projects.map((project) => (
           <Accordion
             key={project.id}
@@ -50,10 +50,12 @@ export function Projects() {
 
         <div className="projects-actions">
           <span className="new-project-button has-text-centered projects-button">
-            <Link
-              className="fas fa-plus-circle fa-2x plus-icon"
-              to="/new"
-            ></Link>
+            {isLoggedIn() ? (
+              <Link
+                className="fas fa-plus-circle fa-2x plus-icon"
+                to="/new"
+              ></Link>
+            ) : null}
             <span className="caption">New Project</span>
           </span>
           <span className="sort-project-button has-text-centered projects-button">

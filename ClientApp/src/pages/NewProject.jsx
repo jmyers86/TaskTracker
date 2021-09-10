@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { useHistory } from 'react-router-dom'
+import { authHeader } from '../auth'
 
 export function NewProject() {
   const [newProject, setNewProject] = useState({
@@ -35,16 +36,19 @@ export function NewProject() {
 
     const response = await fetch('/api/Projects', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...authHeader() },
       body: JSON.stringify(newProject),
     })
-
-    const json = await response.json()
-
-    if (response.status === 400) {
-      setErrorMessage(Object.values(json.errors).join(' '))
+    if (response.status === 401) {
+      setErrorMessage('Not Authorized')
     } else {
-      history.push('/projects')
+      if (response.status === 400) {
+        const json = await response.json()
+
+        setErrorMessage(Object.values(json.errors).join(' '))
+      } else {
+        history.push('/projects')
+      }
     }
   }
   return (
@@ -57,56 +61,55 @@ export function NewProject() {
             <div className="message-body">{errorMessage}</div>
           </article>
         )}
-        <div className="form-field">
-          <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Project Name"
-                name="name"
-                value={newProject.name}
-                onChange={handleStringFieldChange}
-              />
+        <form onSubmit={handleFormSubmit}>
+          <div className="form-field">
+            <div className="field">
+              <label className="label">Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Project Name"
+                  name="name"
+                  value={newProject.name}
+                  onChange={handleStringFieldChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Description</label>
-            <div className="control">
-              <textarea
-                className="textarea"
-                placeholder="Project Description"
-                name="description"
-                value={newProject.description}
-                onChange={handleStringFieldChange}
-              ></textarea>
+            <div className="field">
+              <label className="label">Description</label>
+              <div className="control">
+                <textarea
+                  className="textarea"
+                  placeholder="Project Description"
+                  name="description"
+                  value={newProject.description}
+                  onChange={handleStringFieldChange}
+                ></textarea>
+              </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Estimated Due Date</label>
-            <div className="control">
-              <input
-                className="input"
-                type="date"
-                placeholder="Estimated Project Due Date"
-                name="dueDate"
-                value={newProject.dueDate}
-                onChange={handleDueDate}
-              />
+            <div className="field">
+              <label className="label">Estimated Due Date</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="date"
+                  placeholder="Estimated Project Due Date"
+                  name="dueDate"
+                  value={newProject.dueDate}
+                  onChange={handleDueDate}
+                />
+              </div>
             </div>
-          </div>
-          <div className="field is-grouped is-grouped-centered has-addons form-buttons">
-            <button className="button is-light is-small">Discard</button>
+            <div className="field is-grouped is-grouped-centered has-addons form-buttons">
+              <button className="button is-light is-small">Discard</button>
 
-            <button
-              className="button is-primary is-small"
-              onClick={handleFormSubmit}
-            >
-              Save
-            </button>
+              <button className="button is-primary is-small" type="submit">
+                Save
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </fieldset>
 
       <Footer />
