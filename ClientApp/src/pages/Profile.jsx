@@ -2,19 +2,24 @@ import React from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
+import { isLoggedIn, getUser } from '../auth'
+
+const user = getUser()
 
 export function Profile() {
   return (
     <>
       <Menu message="Joe's Profile" color="is-dark" />
       <div className="profile-page">
-        <figure className="image is-128x128 profile-picture">
-          <img
-            className="is-rounded "
-            src="https://bulma.io/images/placeholders/128x128.png"
-            alt="profile"
-          />
-        </figure>
+        {isLoggedIn() && user.photoURL ? (
+          <figure className="image is-128x128 profile-picture">
+            <img
+              className="is-rounded "
+              src={user.photoURL}
+              alt={`${user.name}'s Profile'`}
+            />
+          </figure>
+        ) : null}
 
         <fieldset className="profile-accordion">
           <div>

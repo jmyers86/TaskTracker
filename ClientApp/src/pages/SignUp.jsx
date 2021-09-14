@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { useHistory } from 'react-router'
+import { useDropzone } from 'react-dropzone'
+import { authHeader } from '../auth'
 
 export function SignUp() {
   const history = useHistory()
+
+  const [isUploading, setIsUploading] = useState(false)
 
   const [errorMessage, setErrorMessage] = useState([])
 
@@ -12,6 +16,7 @@ export function SignUp() {
     name: '',
     email: '',
     password: '',
+    photoURL: '',
   })
 
   function handleStringFieldChange(event) {
@@ -40,6 +45,56 @@ export function SignUp() {
       history.push('/')
     }
   }
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  })
+
+  async function onDropFile(acceptedFiles) {
+    const fileToUpload = acceptedFiles[0]
+    console.log(fileToUpload)
+
+    const formData = new FormData()
+
+    formData.append('file', fileToUpload)
+
+    try {
+      setIsUploading(true)
+
+      const response = await fetch('/api/uploads', {
+        method: 'POST',
+        headers: {
+          ...authHeader(),
+        },
+        body: formData,
+      })
+
+      setIsUploading(false)
+
+      if (response.status === 200) {
+        const apiResponse = await response.json()
+
+        const url = apiResponse.url
+
+        setNewUser({ ...newUser, photoURL: url })
+      } else {
+        setErrorMessage(Object.values('Unable to upload image'))
+      }
+    } catch (error) {
+      console.debug(error)
+      setErrorMessage(Object.values('Unable to upload image'))
+      setIsUploading(false)
+    }
+  }
+
+  let dropZoneMessage = 'Drag your profile picture here!'
+
+  if (isUploading) {
+    dropZoneMessage = 'Uploading...'
+  }
+
+  if (isDragActive) {
+    dropZoneMessage = 'Drop the files here...'
+  }
 
   return (
     <>
@@ -60,6 +115,21 @@ export function SignUp() {
           <h1 className="has-text-centered login-text">
             Please provide your details:
           </h1>
+          {newUser.photoURL ? (
+            <p>
+              <img
+                alt="Currently uploaded"
+                width={200}
+                src={newUser.photoURL}
+              />
+            </p>
+          ) : null}
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
+          </div>
 
           <div className="field">
             <label className="label">Name</label>
