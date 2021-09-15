@@ -9,7 +9,7 @@ const user = getUser()
 export function Profile() {
   return (
     <>
-      <Menu message="Joe's Profile" color="is-dark" />
+      <Menu message={`${user.name}'s Profile`} color="is-dark" />
       <div className="profile-page">
         {isLoggedIn() && user.photoURL ? (
           <figure className="image is-128x128 profile-picture">

@@ -115,21 +115,6 @@ export function SignUp() {
           <h1 className="has-text-centered login-text">
             Please provide your details:
           </h1>
-          {newUser.photoURL ? (
-            <p>
-              <img
-                alt="Currently uploaded"
-                width={200}
-                src={newUser.photoURL}
-              />
-            </p>
-          ) : null}
-          <div className="file-drop-zone">
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              {dropZoneMessage}
-            </div>
-          </div>
 
           <div className="field">
             <label className="label">Name</label>
@@ -181,7 +166,7 @@ export function SignUp() {
               </span>
             </p>
           </div>
-          <div className="field">
+          {/* <div className="field">
             <label className="label">Re-enter Password</label>
 
             <p className="control has-icons-left">
@@ -190,6 +175,21 @@ export function SignUp() {
                 <i className="fas fa-lock"></i>
               </span>
             </p>
+          </div> */}
+          {newUser.photoURL ? (
+            <p>
+              <img
+                alt="Currently uploaded"
+                width={200}
+                src={newUser.photoURL}
+              />
+            </p>
+          ) : null}
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
           </div>
           <div className="field">
             <p className="control login-buttons has-text-centered">

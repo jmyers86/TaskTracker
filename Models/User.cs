@@ -17,6 +17,8 @@ namespace TaskTracker.Models
         [JsonIgnore]
         public string HashedPassword { get; set; }
 
+        public string PhotoURL { get; set; }
+
         public List<Project> Projects { get; set; }
 
         public string Password

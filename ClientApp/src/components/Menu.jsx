@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { isLoggedIn, logout } from '../auth'
+import { isLoggedIn, logout, getUser } from '../auth'
+
+const user = getUser()
 
 export function Menu(props) {
   const [isActive, setisActive] = useState(false)
@@ -40,13 +42,22 @@ export function Menu(props) {
           className={`navbar-menu ${isActive ? 'is-active' : ''}`}
         >
           <div className="navbar-start ">
-            <figure className="image is-64x64 profile-picture">
+            {/* <figure className="image is-64x64 profile-picture">
               <img
                 className="is-rounded "
-                src="https://bulma.io/images/placeholders/128x128.png"
+                src={`${user.photoURL}`}
                 alt="profile"
               />
-            </figure>
+            </figure> */}
+            {isLoggedIn() && user.photoURL ? (
+              <figure className="image is-64x64 profile-picture">
+                <img
+                  className="is-rounded "
+                  src={user.photoURL}
+                  alt={`${user.name}'s Profile'`}
+                />
+              </figure>
+            ) : null}
             <hr className="navbar-divider" />
             <div className="navbar-items">
               <Link className="navbar-item is-large" to="/projects">
