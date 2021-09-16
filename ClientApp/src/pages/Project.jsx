@@ -3,7 +3,7 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link, useParams } from 'react-router-dom'
-import { isLoggedIn } from '../auth'
+import { isLoggedIn, authHeader } from '../auth'
 
 export function Project() {
   const params = useParams()
@@ -20,7 +20,9 @@ export function Project() {
 
   useEffect(() => {
     async function fetchProject() {
-      const response = await fetch(`/api/Projects/${id}`)
+      const response = await fetch(`/api/Projects/${id}`, {
+        headers: { 'content-type': 'application/json', ...authHeader() },
+      })
       if (response.ok) {
         const apiData = await response.json()
 
@@ -50,7 +52,7 @@ export function Project() {
                 className="project-accordion-projects"
                 key={task.id}
                 title={task.name}
-                editTo={`projects/${id}/newTask`}
+                editTo={`/editTask/${id}`}
                 dueDate={
                   new Date(`${task.dueDate}`).toISOString().split('T')[0]
                 }

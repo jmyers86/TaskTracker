@@ -8,6 +8,7 @@ import { NewTask } from './pages/NewTask'
 import { SignUp } from './pages/SignUp'
 import { Profile } from './pages/Profile'
 import { EditUser } from './pages/EditUser'
+import { EditTask } from './pages/EditTask'
 import { Route, Switch } from 'react-router-dom'
 
 export function App() {
@@ -36,6 +37,9 @@ export function App() {
       </Route>
       <Route exact path="/editProfile/:id">
         <EditUser />
+      </Route>
+      <Route exact path="/editTask/:id">
+        <EditTask />
       </Route>
     </Switch>
   )

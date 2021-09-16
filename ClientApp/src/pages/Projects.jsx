@@ -3,14 +3,16 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link } from 'react-router-dom'
-import { getUser, isLoggedIn } from '../auth'
+import { authHeader, getUser, isLoggedIn } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
     async function loadProjects() {
-      const response = await fetch('/api/projects')
+      const response = await fetch('/api/projects', {
+        headers: { 'content-type': 'application/json', ...authHeader() },
+      })
 
       if (response.ok) {
         const json = await response.json()

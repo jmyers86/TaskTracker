@@ -34,15 +34,20 @@ namespace TaskTracker.Controllers
         // Returns a list of all your Projects
         //
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
         public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+
         {
+
             // Uses the database context in `_context` to request all of the Projects, sort
             // them by row id and return them as a JSON array.
             // return await _context.Projects.OrderBy(row => row.Id).ToListAsync();
 
+            Console.WriteLine(GetCurrentUserId());
 
-            return await _context.Projects.OrderBy(project => project.Id).Include(project => project.Tasks).ToListAsync();
-
+            return await _context.Projects.Where(project => project.UserId == GetCurrentUserId()).OrderBy(project => project.Id).Include(project => project.Tasks).ToListAsync();
+            // return await _context.Projects.OrderBy(project => project.Id).Include(project => project.Tasks).ToListAsync();
 
         }
 
