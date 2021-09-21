@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskTracker.Models;
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace TaskTracker.Controllers
 {
@@ -141,6 +142,8 @@ namespace TaskTracker.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
         public async tt.Task<IActionResult> DeleteTask(int id)
         {
             // Find this task by looking for the specific id
@@ -149,6 +152,18 @@ namespace TaskTracker.Controllers
             {
                 // There wasn't a task with that id so return a `404` not found
                 return NotFound();
+            }
+
+            if (task.ProjectId != id)
+            {
+                // Make a custom error response
+                var response = new
+                {
+                    status = 401,
+                    errors = new List<string>() { "Not Authorized" }
+                };
+                // Return our error with the custom response
+                return Unauthorized(response);
             }
 
             // Tell the database we want to remove this record

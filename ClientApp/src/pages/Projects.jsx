@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
-import { Link } from 'react-router-dom'
-import { authHeader, getUser, isLoggedIn } from '../auth'
+import { Link, useHistory } from 'react-router-dom'
+import { authHeader, getUser, getUserId, isLoggedIn } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
+
+  const history = useHistory()
 
   useEffect(() => {
     async function loadProjects() {
@@ -23,6 +25,17 @@ export function Projects() {
     loadProjects()
   }, [])
 
+  async function handleDelete(event) {
+    event.preventDefault()
+    const response = await fetch(`/api/Projects/{id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json', ...authHeader() },
+    })
+    if (response.status === 200 || response.status === 204) {
+      history.push('/projects')
+    }
+  }
+
   const user = getUser()
   return (
     <>
@@ -35,7 +48,11 @@ export function Projects() {
             title={project.name}
             dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
             editTo={`/projects/${project.id}`}
-            onDelete={() => window.alert('deleted!')}
+            onDelete={
+              project.userId === getUserId() ? (
+                <button onClick={handleDelete}>Delete</button>
+              ) : null
+            }
           >
             <div className="project-detail-field card-content">
               <div className="content">

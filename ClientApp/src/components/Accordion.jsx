@@ -36,7 +36,7 @@ export function Accordion(props) {
             <a href={props.editTo} className="card-footer-item">
               Edit
             </a>
-            <a href="#" className="card-footer-item" onClick={props.onDelete}>
+            <a href="" className="card-footer-item" onClick={props.onDelete}>
               Delete
             </a>
           </footer>
