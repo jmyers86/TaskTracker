@@ -3,7 +3,7 @@ import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
 import { Link, useHistory } from 'react-router-dom'
-import { authHeader, getUser, getUserId, isLoggedIn } from '../auth'
+import { authHeader, getUser, isLoggedIn } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
@@ -45,14 +45,11 @@ export function Projects() {
         {projects.map((project) => (
           <Accordion
             key={project.id}
+            id={project.id}
             title={project.name}
             dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
             editTo={`/projects/${project.id}`}
-            onDelete={
-              project.userId === getUserId() ? (
-                <button onClick={handleDelete}>Delete</button>
-              ) : null
-            }
+            onDelete={handleDelete}
           >
             <div className="project-detail-field card-content">
               <div className="content">

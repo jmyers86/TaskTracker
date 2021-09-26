@@ -188,7 +188,8 @@ namespace TaskTracker.Controllers
             await _context.SaveChangesAsync();
 
             // Return a copy of the deleted data
-            return Ok(project);
+            // return Ok(project);
+            return NoContent();
         }
 
         // Private helper method that looks up an existing project by the supplied id
