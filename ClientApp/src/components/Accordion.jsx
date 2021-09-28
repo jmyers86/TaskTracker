@@ -1,11 +1,26 @@
 import * as React from 'react'
 import useCollapse from 'react-collapsed'
+import { useHistory } from 'react-router'
+import { authHeader } from '../auth'
 
 export function Accordion(props) {
   const [isExpanded, setExpanded] = React.useState(false)
   const { getToggleProps, getCollapseProps } = useCollapse({
     isExpanded,
   })
+
+  const history = useHistory()
+
+  async function handleDelete(event) {
+    event.preventDefault()
+    const response = await fetch(props.deleteTo, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json', ...authHeader() },
+    })
+    if (response.status === 200 || response.status === 204) {
+      props.reload()
+    }
+  }
 
   return (
     <>
@@ -36,7 +51,11 @@ export function Accordion(props) {
             <a href={props.editTo} className="card-footer-item">
               Edit
             </a>
-            <a href="" className="card-footer-item" onClick={props.onDelete}>
+            <a
+              href={props.editTo}
+              className="card-footer-item"
+              onClick={handleDelete}
+            >
               Delete
             </a>
           </footer>

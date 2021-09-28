@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { useHistory, useParams } from 'react-router-dom'
+import { authHeader } from '../auth'
 
 export function EditTask() {
   const params = useParams()
@@ -54,18 +55,18 @@ export function EditTask() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch('/api/Tasks/{id}', {
+    const response = await fetch(`/api/Tasks/${id}`, {
       method: 'PUT',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...authHeader() },
       body: JSON.stringify(updatedTask),
     })
 
     const json = await response.json()
 
     if (response.status === 400) {
-      setErrorMessage(Object.values(json.errors).join(' '))
+      setErrorMessage(Object.values(json.errors).join(''))
     } else {
-      history.push(`/projects/${id}`)
+      history.push(`/projects/${updatedTask.projectId}`)
     }
   }
   return (
@@ -86,7 +87,7 @@ export function EditTask() {
                 <input
                   className="input"
                   type="text"
-                  placeholder="Task Name"
+                  placeholder={'Task Name'}
                   name="name"
                   value={updatedTask.name}
                   onChange={handleStringFieldChange}

@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { isLoggedIn, authHeader } from '../auth'
 
 export function Project() {
   const params = useParams()
   // @ts-ignore
   const id = params.id
-
-  const history = useHistory()
 
   const [project, setProject] = useState({
     name: '',
@@ -19,32 +17,20 @@ export function Project() {
     completed: false,
     tasks: [],
   })
-
-  useEffect(() => {
-    async function fetchProject() {
-      const response = await fetch(`/api/Projects/${id}`, {
-        headers: { 'content-type': 'application/json', ...authHeader() },
-      })
-      if (response.ok) {
-        const apiData = await response.json()
-
-        console.log(apiData)
-        setProject(apiData)
-      }
-    }
-    fetchProject()
-  }, [id])
-
-  async function handleDelete(event) {
-    event.preventDefault()
-    const response = await fetch(`/api/Tasks/${id}`, {
-      method: 'DELETE',
+  async function fetchProject() {
+    const response = await fetch(`/api/Projects/${id}`, {
       headers: { 'content-type': 'application/json', ...authHeader() },
     })
-    if (response.status === 200 || response.status === 204) {
-      history.push(`/projects/${id}}`)
+    if (response.ok) {
+      const apiData = await response.json()
+
+      console.log(apiData)
+      setProject(apiData)
     }
   }
+  useEffect(() => {
+    fetchProject()
+  }, [id])
 
   return (
     <>
@@ -65,11 +51,12 @@ export function Project() {
                 className="project-accordion-projects"
                 key={task.id}
                 title={task.name}
-                editTo={`/editTask/${id}`}
+                editTo={`/editTask/${task.id}`}
                 dueDate={
                   new Date(`${task.dueDate}`).toISOString().split('T')[0]
                 }
-                onDelete={handleDelete}
+                deleteTo={`/api/Tasks/${task.id}`}
+                reload={fetchProject}
               >
                 <div className="task-detail-field">
                   <p>{task.description}</p>

@@ -2,39 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
 import { Accordion } from '../components/Accordion'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { authHeader, getUser, isLoggedIn } from '../auth'
 
 export function Projects() {
   const [projects, setProjects] = useState([])
 
-  const history = useHistory()
-
-  useEffect(() => {
-    async function loadProjects() {
-      const response = await fetch('/api/projects', {
-        headers: { 'content-type': 'application/json', ...authHeader() },
-      })
-
-      if (response.ok) {
-        const json = await response.json()
-
-        setProjects(json)
-      }
-    }
-    loadProjects()
-  }, [])
-
-  async function handleDelete(event) {
-    event.preventDefault()
-    const response = await fetch(`/api/Projects/{id}`, {
-      method: 'DELETE',
+  async function loadProjects() {
+    const response = await fetch('/api/projects', {
       headers: { 'content-type': 'application/json', ...authHeader() },
     })
-    if (response.status === 200 || response.status === 204) {
-      history.push('/projects')
+
+    if (response.ok) {
+      const json = await response.json()
+
+      setProjects(json)
     }
   }
+  useEffect(() => {
+    loadProjects()
+  }, [])
 
   const user = getUser()
   return (
@@ -49,7 +36,8 @@ export function Projects() {
             title={project.name}
             dueDate={new Date(project.dueDate).toLocaleDateString('en-US')}
             editTo={`/projects/${project.id}`}
-            onDelete={handleDelete}
+            deleteTo={`/api/Projects/${project.id}`}
+            reload={loadProjects}
           >
             <div className="project-detail-field card-content">
               <div className="content">

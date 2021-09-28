@@ -147,14 +147,14 @@ namespace TaskTracker.Controllers
         public async tt.Task<IActionResult> DeleteTask(int id)
         {
             // Find this task by looking for the specific id
-            var task = await _context.Tasks.FindAsync(id);
+            var task = await _context.Tasks.Include(task => task.Project).FirstOrDefaultAsync(t => t.Id == id);
             if (task == null)
             {
                 // There wasn't a task with that id so return a `404` not found
                 return NotFound();
             }
 
-            if (task.ProjectId != id)
+            if (task.Project.UserId != GetCurrentUserId())
             {
                 // Make a custom error response
                 var response = new
@@ -180,6 +180,10 @@ namespace TaskTracker.Controllers
         private bool TaskExists(int id)
         {
             return _context.Tasks.Any(task => task.Id == id);
+        }
+        private int GetCurrentUserId()
+        {
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }
