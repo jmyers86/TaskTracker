@@ -37,10 +37,7 @@ export function Menu(props) {
           </button>
         </div>
 
-        <div
-          id="navbarBasicExample"
-          className={`navbar-menu ${isActive ? 'is-active' : ''}`}
-        >
+        <div className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
           <div className="navbar-start ">
             {/* <figure className="image is-64x64 profile-picture">
               <img
@@ -49,30 +46,31 @@ export function Menu(props) {
                 alt="profile"
               />
             </figure> */}
-            {isLoggedIn() && user.photoURL ? (
-              <figure className="image is-64x64 profile-picture">
-                <img
-                  className="is-rounded "
-                  src={user.photoURL}
-                  alt={`${user.name}'s Profile'`}
-                />
-              </figure>
-            ) : null}
-            <hr className="navbar-divider" />
-            <div className="navbar-items">
-              <Link className="navbar-item is-large" to="/projects">
-                Projects
-              </Link>
 
-              <Link className="navbar-item" to="/profile">
-                Profile
-              </Link>
+            <Link className="navbar-item is-large" to="/projects">
+              Projects
+            </Link>
 
-              <span className="navbar-item is-small">Report an issue</span>
-            </div>
+            <Link className="navbar-item" to="/profile">
+              Profile
+            </Link>
+
+            <span className="navbar-item is-small">Report an issue</span>
           </div>
 
           <div className="navbar-end">
+            <div className="navbar-item">
+              {isLoggedIn() && user.photoURL ? (
+                <figure className="image is-1by1">
+                  <img
+                    className="is-rounded "
+                    src={user.photoURL}
+                    alt={`${user.name}'s Profile'`}
+                    height="32"
+                  />
+                </figure>
+              ) : null}
+            </div>
             <div className="navbar-item">
               <div className="buttons">
                 {isLoggedIn() ? (

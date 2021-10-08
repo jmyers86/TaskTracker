@@ -19,36 +19,6 @@ body {
   min-height: calc(100vh - 6rem);
 }
 
-@media screen and (max-width: 1024px) {
-  .navbar-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .navbar-items {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .navbar-items a {
-    font-weight: bold;
-    color: white;
-  }
-}
-
-.navbar-end {
-  margin: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .projects-accordion {
   margin: 1rem;
   border: thin solid lightgrey;
@@ -91,7 +61,7 @@ body {
 .projects-accordion,
 legend {
   margin-left: 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .new-project-form {
