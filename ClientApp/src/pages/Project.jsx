@@ -85,10 +85,20 @@ export function Project() {
                   </ul>
 
                   <div className="buttons has-addons is-centered">
-                    <button className="button  is-light is-small">
+                    <button
+                      className={`button is-small ${
+                        task.completed ? 'is-info' : 'is-light'
+                      }`}
+                    >
                       In-Progress
                     </button>
-                    <button className="button is-info is-small">
+                    <button
+                      // I need to not repeat. Set up a onClick function that does the work
+                      // of changing style and completed/!completed.
+                      className={`button is-small ${
+                        task.completed ? 'is-info' : 'is-light'
+                      }`}
+                    >
                       Complete
                     </button>
                   </div>
